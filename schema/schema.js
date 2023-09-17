@@ -39,7 +39,7 @@ const {
 const BookType = new GraphQLObjectType({
   name: "Book",
   fields: () => ({
-    id: { type: GraphQLString },
+    id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
     authorId: { type: GraphQLID },
@@ -82,7 +82,7 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     book: {
       type: BookType,
-      args: { id: { type: GraphQLString } }, // here we can use GraphQLID instead of GraphQLString of  // args means same as find by id for book data
+      args: { id: { type: GraphQLID } }, // here we can use GraphQLID instead of GraphQLString of  // args means same as find by id for book data
       // because this is only accept string id GraphQLString  so the type is always string
       resolve(parent, args) {
         // Code to get Data from the Database / other resources
